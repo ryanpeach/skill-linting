@@ -52,18 +52,6 @@ MCP's should not return raw data structures that require the agent to inspect th
 
 # Structure
 
-## Plugin Structure
-Skills live in [`skills/`](skills/) and are registered via [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json):
-
-```json
-{
-  "name": "career-ops",
-  "skills": "./skills/"
-}
-```
-
-Each skill is a directory with a `SKILL.md` at its root. The `SKILL.md` frontmatter defines name, description, and whether it is user-invocable.
-
 ## Skill Asset Isolation
 
 Skills must not hardcode paths outside their own directory. External files are exposed to the skill via symlinks in `skills/{skill}/assets/`:
