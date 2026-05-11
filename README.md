@@ -12,8 +12,8 @@ Bundles two skills:
 In Claude Code:
 
 ```
-/plugin marketplace add ryanpeach/skill-linting
-/plugin install skill-linting@skill-linting
+/plugin marketplace add ryanpeach/skills-marketplace
+/plugin install skill-linting@ryanpeach
 ```
 
 Then `/reload-plugins` (or restart Claude Code).
