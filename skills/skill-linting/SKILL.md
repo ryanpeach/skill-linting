@@ -1,6 +1,5 @@
 ---
-description: Lint the repo's skill documentation for structural issues — missing frontmatter, unlinked file paths, duplicated content, and contradictions across docs.
-disable-model-invocation: true
+description: Lint the repo's skills for deep structural issues, like contradictions, non-links, etc. These are rules that allow the skills to be checkable with traditional linting tools.
 ---
 
 # Skill Style Guide
@@ -51,7 +50,7 @@ Try to enforce doctests as much as possible, especially in mcp's where the docst
 
 MCP's should not return raw data structures that require the agent to inspect the output before it knows what it will be. They should return simple strings or structs that can be easily converted to complete JSON schema and shown to the agent via get_schema.
 
-# Claude Code Integration
+# Structure
 
 ## Plugin Structure
 Skills live in [`skills/`](skills/) and are registered via [`.claude-plugin/plugin.json`](.claude-plugin/plugin.json):
@@ -74,7 +73,7 @@ skills/scan/assets/portals.yml -> ../../../personal/portals.yml
 skills/scan/assets/search.yml  -> ../../../personal/search.yml
 ```
 
-Scripts then reference assets via `Path(__file__).parent.parent / "assets"`, with data paths (e.g. [`data/pipeline.tsv`](data/pipeline.tsv)) passed as overridable typer options.
+Use symlinks from an external file to a file in the skill if a file is needed in more than one skill.
 
 ## Skill Bins
 
@@ -94,4 +93,4 @@ Standalone scripts use uv inline script metadata so they run with no manual venv
 
 We do this so that skills can be exported from the repo as self-contained units with no external setup.
 
-ALSO add the dependencies to the root `pyproject.toml` so they are available in the venv for linting.
+ALSO add the dependencies to the root `pyproject.toml` if it exists so they are available in the venv for linting.
