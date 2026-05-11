@@ -6,6 +6,16 @@ description: Lint a skills repo for deep structural issues — layout, broken fi
 
 When running this skill, audit the repo for problematic patterns in the structure, formatting, or content of skill docs. Use the guidelines below to identify and fix issues, and delegate the two mechanical checks to the dedicated sub-skills.
 
+## Workflow: scripts first, todos second, fixes third
+
+Both sub-skills below produce a list of issues from a script. Before editing any files, run each script (in `--check` or default mode), then convert its output into a TodoWrite list — one todo per actionable item — and work the list item-by-item, marking each completed as you fix it. Don't skip this step on small repos either; the script's output drops out of context quickly once you start editing, and a todo list is the only thing that survives.
+
+Order the work as:
+
+1. Run [`../check-skill-file-links/bin/link_md_paths.py`](../check-skill-file-links/bin/link_md_paths.py) → todo list → fix.
+2. Run [`../detect-skill-contradictions/bin/cross_file_checking.py`](../detect-skill-contradictions/bin/cross_file_checking.py) → todo list → fix.
+3. Apply the structural rules below (layout, MCPs, asset isolation) by hand — these are judgment calls, not script-driven, but still benefit from a todo per finding.
+
 # Layout
 
 ## Agentskills

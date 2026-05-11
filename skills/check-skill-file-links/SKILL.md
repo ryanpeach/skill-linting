@@ -44,6 +44,21 @@ uv run skills/check-skill-file-links/bin/link_md_paths.py --dry-run
 uv run skills/check-skill-file-links/bin/link_md_paths.py README.md
 ```
 
+## Build a todo list from the output before fixing
+
+Before editing any files, run the script in `--check` or `--dry-run` mode and turn its output into a TodoWrite list — one todo per reported issue (or per file if a single file has many cohesive fixes). Then work the list item-by-item, marking each todo completed as you fix it.
+
+This matters because:
+
+- The script's output disappears from context as you make edits; a todo list keeps the work auditable.
+- Broken backtick paths (`BROKEN_BACKTICK`) need human judgment per item — bare auto-fix doesn't apply.
+- On large repos the list is long enough that batching invites missed items.
+
+A reasonable mapping:
+
+- Each `unlinked` issue → one todo, marked completed after the rewrite (or after a single `--no-dry-run` run that handles a batch).
+- Each `broken` warning → one todo, since each requires deciding whether to fix the path, delete the reference, or update the target.
+
 ## When the script misses or over-reports
 
 If you find a path the script should have linked but didn't, update the script — usually that means adding an extension to `_KNOWN_EXTS` or extending the grammar. If the script flags something it shouldn't (e.g. a conceptual filename used as a type, not a real file), update these guidelines to describe the edge case so future readers know why a bare reference is correct.

@@ -27,6 +27,16 @@ Output is one line per pair, sorted by score:
 file_a:line_a → file_b:line_b (0.92) - "snippet preview..."
 ```
 
+## Build a todo list from the output before triaging
+
+Run the script first and turn its output into a TodoWrite list — one todo per reported pair. Each pair requires a human-judgment decision (duplication vs. contradiction vs. acceptable overlap), so a checklist is the right granularity. Mark each todo completed only after you've resolved that pair (edited the docs, added a cross-link, or explicitly decided to leave it).
+
+This matters because:
+
+- The script's similarity report scrolls out of context quickly once you start editing files.
+- Pairs are independent decisions — batching invites either rubber-stamping or losing track.
+- Some pairs cascade: collapsing duplication in one file can resolve several pending pairs, and a todo list makes that easy to spot and check off together.
+
 ## Triage each pair
 
 For every pair the script reports, classify it as one of:
