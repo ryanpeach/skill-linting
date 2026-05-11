@@ -1,0 +1,13 @@
+{
+  "name": "skill-linting",
+  "version": "0.1.0",
+  "description": "Audits skills repos: structural lint + Claude Code safety review.",
+  "author": {
+    "name": "Ryan Peach",
+    "url": "https://github.com/ryanpeach"
+  },
+  "homepage": "https://github.com/ryanpeach/skill-linting",
+  "repository": "https://github.com/ryanpeach/skill-linting",
+  "license": "MIT",
+  "keywords": ["skills", "lint", "audit", "safety"]
+}
