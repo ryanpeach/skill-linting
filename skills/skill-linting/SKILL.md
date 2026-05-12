@@ -12,8 +12,8 @@ Both sub-skills below produce a list of issues from a script. Before editing any
 
 Order the work as:
 
-1. Run [`../check-skill-file-links/bin/link_md_paths.py`](../check-skill-file-links/bin/link_md_paths.py) → todo list → fix.
-2. Run [`../detect-skill-contradictions/bin/cross_file_checking.py`](../detect-skill-contradictions/bin/cross_file_checking.py) → todo list → fix.
+1. Run `/check-skill-file-links` → todo list → fix.
+2. Run `/detect-skill-contradictions` → todo list → fix.
 3. Apply the structural rules below (layout, MCPs, asset isolation) by hand — these are judgment calls, not script-driven, but still benefit from a todo per finding.
 
 # Layout
